@@ -1,0 +1,118 @@
+import java.util.*;
+
+public class CustomLogic {
+
+    public static <T> List<T> removeDuplicates(List<T> list) {
+      // REMOVE DUPLICATES IMPLEMENTATION
+
+      Set<String> theSet = new HashSet<>();
+
+      for(String s : list){
+        theSet.add(s);
+      }
+
+      ArrayList<String> array = new ArrayList<>();
+      for(String s : theSet){
+        array.add(s);
+      }
+
+        return array;
+    }
+
+    public static <T extends Comparable<T>> List<T> sortWithoutDuplicates(List<T> list) {
+      // SORT WITHOUT DUPLICATES IMPLEMENTATION
+
+
+        return Arrays.stream(list) list.sortWithoutDuplicates;
+    }
+}
+
+
+=====
+
+
+EXPLANATION:
+
+ 1) The coding exercise consist on two main things
+      - Implement the method to remove duplicates but keep the order
+Make sure remove duplicates but Sorted
+
+
+Both Methos iare in CustomLogic Class, Don't modify the signature, just add the implementation
+
+
+
+=====
+
+
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import java.util.*;
+
+public class TestJunit {
+    @Test
+    public void testRemoveDuplicatesIntegers() {
+        List<Integer> input = Arrays.asList(2, 5, 5, 55, 69, 666, 666, 2019, 42, 21, 9, 2, 69, 5);
+        List<Integer> expected = Arrays.asList(2, 5, 55, 69, 666, 2019, 42, 21, 9);
+        assertEquals(expected, CustomLogic.removeDuplicates(input));
+    }
+
+    @Test
+    public void testRemoveDuplicatesStrings() {
+        List<String> input = Arrays.asList("John", "Tina", "John", "Bob");
+        List<String> expected = Arrays.asList("John", "Tina", "Bob");
+        assertEquals(expected, CustomLogic.removeDuplicates(input));
+    }
+
+    @Test
+    public void testSortWithoutDuplicatesIntegers() {
+        List<Integer> input = Arrays.asList(5, 2, 2, 9, 5);
+        List<Integer> expected = Arrays.asList(2, 5, 9);
+        assertEquals(expected, CustomLogic.sortWithoutDuplicates(input));
+    }
+
+    @Test
+    public void testSortWithoutDuplicatesStrings() {
+        List<String> input = Arrays.asList("Tom", "Bob", "Tom", "Anna");
+        List<String> expected = Arrays.asList("Anna", "Bob", "Tom");
+        assertEquals(expected, CustomLogic.sortWithoutDuplicates(input));
+    }
+
+    @Test
+    public void testEmptyList() {
+        List<String> input = new ArrayList<>();
+        List<String> expected = new ArrayList<>();
+        assertEquals(expected, CustomLogic.sortWithoutDuplicates(input));
+    }
+}
+
+
+========
+
+
+
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+
+public class Main {
+  public static void main(String[] args) {
+
+    // run tests and count passing/failing
+    Result result = JUnitCore.runClasses(TestJunit.class);
+    int testsRun = result.getRunCount();
+    int testsFailed = result.getFailureCount();
+
+    // optional: print failures
+    for (Failure failure: result.getFailures()) {
+      System.out.println(failure.toString());
+    }
+
+    // REQUIRED
+    // these lines are required in order for our system to assign a grade based on the unit tests
+    System.out.println("__JUNIT__ TESTS RUN COUNT: " + testsRun);
+    System.out.println("__JUNIT__ TESTS FAILURE COUNT: " + testsFailed);
+    System.out.println("__JUNIT__ ALL TESTS PASSING: " + result.wasSuccessful());
+
+  }
+}

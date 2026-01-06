@@ -1,0 +1,22 @@
+# Use the official MySQL 8 LTS image (recommended for stability and compatibility with modern features)
+FROM mysql:8
+
+# Optional: Add metadata about the image
+LABEL description="MySQL 8 container with Murach's MySQL book databases (AP, EX, OM)"
+LABEL maintainer="your-email@example.com"
+
+# Set environment variables (customize these as needed)
+# MYSQL_ROOT_PASSWORD is required for the container to start
+ENV MYSQL_ROOT_PASSWORD=rootpassword
+
+# Optional: Create a default database (not required since your script creates them)
+# ENV MYSQL_DATABASE=ap
+
+# Copy the create_databases.sql script into the initialization directory
+# The official entrypoint will execute it automatically on first run
+COPY create_databases.sql /docker-entrypoint-initdb.d/01-create-databases.sql
+
+# Expose the default MySQL port
+EXPOSE 3306
+
+# The official MySQL image handles the CMD/ENTRYPOINT – no need to override
