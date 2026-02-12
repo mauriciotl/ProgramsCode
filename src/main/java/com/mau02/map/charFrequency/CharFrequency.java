@@ -1,4 +1,4 @@
-package com.mau02.map;
+package com.mau02.map.charFrequency;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.mau02.array;
+package com.mau02.array.reverse;
 
 import java.util.Arrays;
 

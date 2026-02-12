@@ -1,8 +1,7 @@
-package com.mau02.list;
+package com.mau02.list.removeNumber;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RemoveNotEvenNumber {
 

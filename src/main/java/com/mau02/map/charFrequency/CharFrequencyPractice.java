@@ -1,9 +1,9 @@
-package com.mau02.map;
+package com.mau02.map.charFrequency;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class CharFrecuencyPractice {
+public class CharFrequencyPractice {
 
 
     public static void  main(String[] args){

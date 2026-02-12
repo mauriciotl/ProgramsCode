@@ -1,0 +1,23 @@
+Endpoint POST /tokens que reciba JSON: cardNumber, expiryDate, cvv, requestId (UUID único del cliente).
+
+Validaciones:
+
+requestId ya existe → 409 Conflict ("Token ya generado")
+
+Datos de tarjeta inválidos → 400 Bad Request
+
+Si válido:
+
+Genera token (simula: TKN- + UUID)
+
+Guarda en Map en memoria: {requestId → {token, expiry, status: ACTIVE}}
+
+Devuelve 201 con {token, expiryDate, requestId}
+
+Seguridad: nunca loguea datos sensibles (solo *** o hashes)
+
+// The code challenge:
+
+The code challenge was about explaining a spring-boot project from the domain/entity
+objets, and passing across all the layers: repository, service and controllers/and restControllers
+

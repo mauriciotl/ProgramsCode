@@ -32,6 +32,11 @@ public class BinarySearch {
         System.out.println("The index of the looking for value is: "
                 + binarySearch(anySortedArray,value));
 
+
+        value = 1;
+        System.out.println("The index of the looking for value is: "
+                + binarySearch(anySortedArray,value));
+
     }
 
 
@@ -46,7 +51,7 @@ public class BinarySearch {
        int max = sortedArray.length;;
        int midle = (max/2);
 
-        while (midle >= 0) {
+        while (midle >= 0 && midle < sortedArray.length) {
 
             //Value has been found
             if(value == sortedArray[midle]){
