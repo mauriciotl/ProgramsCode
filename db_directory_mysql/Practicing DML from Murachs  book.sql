@@ -8,11 +8,55 @@ show tables;
 
 -- SELECT
 
+select *
+from invoices;
+
 SELECT * 
 FROM invoices
 WHERE payment_total > 2000
 ORDER BY payment_total desc
 LIMIT 10;
+
+
+select * from invoices
+where invoice_total > 1000;
+
+select * from invoices
+where invoice_total != payment_total;
+
+select invoice_total - payment_total as balance
+from invoices
+where (invoice_total - payment_total) > 0;
+
+
+select count(*)
+from invoices
+where (invoice_total - payment_total) > 0;
+
+
+select invoice_id, invoice_total - payment_total as balance
+from invoices
+having balance > 0;
+
+select invoice_id, v.vendor_id, invoice_total - payment_total as balance
+from invoices i
+join vendors v
+on i.vendor_id = v.vendor_id
+having balance > 0;
+
+select invoice_id, v.vendor_id, invoice_total - payment_total as balance
+from invoices i
+join vendors v
+on i.vendor_id = v.vendor_id
+having balance > 0;
+
+
+select count(*) from invoices
+where invoice_total > 1000;
+
+select count(*)
+from invoices
+where (invoice_total - payment_total) > 0;
 
 
 select invoice_id

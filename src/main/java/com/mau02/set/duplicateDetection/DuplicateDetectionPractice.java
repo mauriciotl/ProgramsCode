@@ -34,13 +34,4 @@ public class DuplicateDetectionPractice {
         return false;
     }
 
-
-    private static boolean isDuplicatedSoCool(int[] numbers){
-
-        return DuplicateDetection.containsDuplicate(numbers);
-    }
-
-
-
-
 }

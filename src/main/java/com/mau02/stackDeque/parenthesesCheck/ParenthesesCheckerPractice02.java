@@ -3,7 +3,8 @@ package com.mau02.stackDeque.parenthesesCheck;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class ParenthesesChecker {
+public class ParenthesesCheckerPractice02 {
+
 
     public static void main(String[] args){
 
@@ -36,43 +37,41 @@ public class ParenthesesChecker {
     }
 
 
+
     public static boolean isValidParentheses(String s){
 
-        //1. Creates a Deque (stack), ArrayDeque.
         Deque<Character> stack = new ArrayDeque<>();
 
-        //2.
         for(char c : s.toCharArray()){
 
-            if(c == '(' || c == '[' || c == '{'){
-                stack.push(c);
+            if(c == '(' || c =='[' || c == '{'){
 
-            } else if (c == ')' || c == ']' || c == '}') {
+              stack.push(c);
 
-                if(stack.isEmpty()){
+            } else if (c == ')' || c ==']' || c == '}') {
+
+                if(stack.isEmpty())
                     return false;
-                }
 
                 char top = stack.pop();
 
-                if(!isMatch(top, c)){
+                if(!isMatch(top, c))
                     return false;
-                }
-            }//else if
-        }//for
 
-        // 3. If not empty (false) means there's an orphan parentheses, therefore it's a false.
-        // It's a valid parenthesis otherwise = true.
+            }
+        }
+
         return stack.isEmpty();
     }
 
-    /**
-     * Helper method to check if an opener and closer pair match.
-     */
-    private static boolean isMatch(char open, char close) {
-        return (open == '(' && close == ')') ||
-                (open == '[' && close == ']') ||
-                (open == '{' && close == '}');
+
+
+    private static boolean isMatch(char open, char close){
+
+        return (open == '(' && close == ')')
+                || (open == '[' && close == ']')
+                || (open == '{' && close == '}');
+
     }
 
 
